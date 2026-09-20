@@ -25,3 +25,6 @@ Déployer uniquement `website/`. Ce dépôt ne transfère pas automatiquement le
 
 ## 中文说明
 网站源码、项目内容与素材均已整理。超大 Blender 原文件在上述 Release 的完整交付 ZIP 中；其余文件直接保存在仓库。现有线上 URL 的 Vercel 所有权需另行转交，上传 GitHub 不会自动改变线上网站。
+
+## Reprise sur un autre ordinateur
+Lire [docs/HANDOFF.md](docs/HANDOFF.md) pour l’état actuel, les décisions confirmées et les étapes de reprise.
