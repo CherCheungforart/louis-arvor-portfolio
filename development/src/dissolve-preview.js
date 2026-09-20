@@ -1,0 +1,12 @@
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { fitWordmark } from './fit-wordmark.mjs';
+import { mountLouisDissolve } from './louis-scroll-dissolve.mjs';
+gsap.registerPlugin(ScrollTrigger);
+const title = document.querySelector('#hero-title');
+const container = document.querySelector('#artwork');
+await document.fonts.load('400 100px "Cut the crap"');
+const fit = () => fitWordmark(title, container.clientWidth);
+fit();
+new ResizeObserver(fit).observe(container);
+mountLouisDissolve({ title, container, baseline: document.querySelector('#font-baseline'), ScrollTrigger });

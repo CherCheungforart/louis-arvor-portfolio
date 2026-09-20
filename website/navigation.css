@@ -1,0 +1,23 @@
+/* Approved glass navigation; surface motion is independent of the labels. */
+.portfolio-nav{position:fixed;left:50%;bottom:max(24px,env(safe-area-inset-bottom));transform:translateX(-50%);width:340px;max-width:calc(100% - 32px);height:58px;z-index:900;isolation:isolate;font-family:var(--font-ui)}
+.portfolio-nav__surface{position:absolute;inset:0;border-radius:29px;background:linear-gradient(115deg,rgba(66,67,69,.32),rgba(145,146,148,.24) 42%,rgba(73,74,76,.28) 72%,rgba(111,112,114,.25));backdrop-filter:blur(20px) saturate(115%);-webkit-backdrop-filter:blur(20px) saturate(115%);box-shadow:0 12px 32px #0004;pointer-events:none}
+.portfolio-nav__surface::after{content:"";position:absolute;inset:0;border-radius:inherit;padding:1px;background:linear-gradient(122deg,rgba(255,255,255,.02),rgba(255,255,255,.48) 13%,rgba(255,255,255,.12) 27%,transparent 43%,transparent 61%,rgba(255,255,255,.24) 79%,rgba(255,255,255,.04) 91%,transparent);-webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);mask-composite:exclude}
+.portfolio-nav__links{position:absolute;inset:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));padding:7px;gap:2px}
+.portfolio-nav__links a{display:flex;align-items:center;justify-content:center;min-width:0;border-radius:22px;background:transparent;color:#c4c4c6;text-decoration:none;font:400 var(--type-ui)/1 var(--font-ui);text-transform:uppercase;transition:background .2s,color .2s}
+.portfolio-nav__links a[aria-current=page]{background:rgba(232,232,235,.07);color:#f2f2f4}
+.portfolio-nav__links a:hover{color:#fff}
+.portfolio-nav__links a:focus-visible{outline:1px solid currentColor;outline-offset:-3px}
+#information,#contact{scroll-margin-top:40px}
+.portfolio-contact{margin:0;padding:clamp(64px,10vw,160px) var(--safe-right,6vw) 140px var(--safe-left,6vw);font-family:var(--font-ui)}
+.stamp-page__label.chapter-title,.portfolio-contact .chapter-title{width:100%;margin:0;padding:0 0 clamp(24px,4vw,56px);color:var(--ink,#c8c4c0);font:400 clamp(38px,7.4vw,112px)/1.04 var(--font-ui);letter-spacing:-.055em;text-align:left;text-wrap:balance}
+.contact-content{padding-top:clamp(40px,6vw,88px)}
+.contact-invitation{margin:0 0 24px;font-size:clamp(22px,3vw,42px);letter-spacing:-.035em;line-height:1.2}
+.portfolio-contact a{color:inherit;font-size:clamp(16px,2vw,26px);text-decoration:none;padding-bottom:5px}
+.portfolio-contact a{display:inline-flex;align-items:center;gap:12px}.contact-mail-icon{flex:none;width:1em;height:1em}
+.contact-signature{margin:clamp(64px,8vw,120px) 0 0;font-size:13px;color:var(--ink-soft,#92918c)}
+@media(prefers-reduced-motion:reduce){.portfolio-nav__links a{transition:none}}
+
+.contact-phone{display:flex;align-items:center;gap:12px;margin:16px 0 0;font-size:clamp(16px,2vw,26px);color:inherit}.contact-phone svg{flex:none;width:1em;height:1em}
+
+/* Keep navigation out of both the loading screen and its fade-out. */
+html.boot-pending .portfolio-nav,body:has(#cat-loading:not([hidden])) .portfolio-nav{visibility:hidden;pointer-events:none}

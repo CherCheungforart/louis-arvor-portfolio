@@ -1,0 +1,38 @@
+[
+  {
+    "file": "index.html",
+    "matches_live": true
+  },
+  {
+    "file": "project.html",
+    "matches_live": true
+  },
+  {
+    "file": "archive-style.css",
+    "matches_live": true
+  },
+  {
+    "file": "navigation.css",
+    "matches_live": true
+  },
+  {
+    "file": "navigation.js",
+    "matches_live": true
+  },
+  {
+    "file": "project-postcards.js",
+    "matches_live": true
+  },
+  {
+    "file": "project-detail.js",
+    "matches_live": true
+  },
+  {
+    "file": "assets/cat-3d-preview/home.bundle.js",
+    "matches_live": true
+  },
+  {
+    "file": "assets/paw-ascii/background.bundle.js",
+    "matches_live": true
+  }
+]

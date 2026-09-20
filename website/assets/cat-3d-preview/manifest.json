@@ -1,0 +1,13 @@
+{
+  "version": "clean-copy-v12",
+  "models": {
+    "sitting-v1.glb": {
+      "bytes": 6940540,
+      "sha256": "80daf36be2425aefef8f7e6e6fd4b1f1c461819519727c5b059aa96f673c5adc"
+    },
+    "walk-normal-v7.glb": {
+      "bytes": 9392856,
+      "sha256": "4f2f43e9fe026e20da6809738354fd94609c3bdf1dfcc8ac555422ff921f9e4c"
+    }
+  }
+}

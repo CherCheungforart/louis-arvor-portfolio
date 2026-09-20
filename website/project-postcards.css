@@ -1,0 +1,143 @@
+@font-face {font-family:"VELISTA";src:url("assets/project-postcards/fonts/velista.ttf") format("truetype");font-weight:400;font-style:normal;font-display:swap;}
+@font-face {font-family:"NewYork";src:url("assets/project-postcards/fonts/newyork.otf") format("opentype");font-weight:400;font-style:normal;font-display:swap;}
+.pc-overlay {position:fixed;inset:0;width:100%;height:100%;max-width:none;max-height:none;margin:0;padding:0;border:0;background:transparent;color:inherit;overflow:hidden;outline:none;}
+.pc-overlay::backdrop {background:transparent;}
+.pc-overlay:not([open]) {display:none;}
+.pc-tilt-assembly {position:absolute;inset:0;pointer-events:none;}
+.pc-tilt-assembly > .pc-postcard, .pc-tilt-assembly > .sp-stamp {pointer-events:auto;}
+.pc-overlay button {font-family:inherit;color:inherit;cursor:inherit;-webkit-tap-highlight-color:transparent;}
+.pc-overlay .sp-stamp {position:absolute;left:0;top:0;z-index:50;}
+.pc-overlay .sp-stamp:focus-visible {outline:none;}
+.pc-postcard {
+  --project-ink: #3c3b33;
+  position: absolute;
+  left: 0;
+  top: 0;
+  visibility: hidden;
+  transform-origin: center;
+  z-index: 20;
+  isolation: isolate;
+  container-type: inline-size;
+  color: var(--project-ink);
+  outline: none;
+}
+.pc-postcard[data-country="france"] { --project-ink: #4b3940; }
+.pc-paper-shell {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  border-radius: 1px;
+  box-shadow: 0 1px 1px #f6f0df25, 0 3px 4px #0006, 0 18px 38px #0006;
+}
+.pc-paper-shell img {
+  position: absolute;
+  max-width: none;
+  width: 111.3850616%;
+  height: 115.4453213%;
+  left: -5.8013053%;
+  top: -7.6662909%;
+  user-select: none;
+  filter: url(#pc-paper-tone-china);
+}
+[data-country="france"] .pc-paper-shell img {
+  width: 118.0630284%;
+  height: 122.3416965%;
+  left: -9.0699462%;
+  top: -11.2305854%;
+  filter: url(#pc-paper-tone-france);
+}
+.pc-postcard-content {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  font-family: "NewYork", Georgia, serif;
+  font-size: clamp(8.5px, 1.42cqw, 11px);
+  line-height: 1.4;
+}
+/* Shared surface relief sits above the printed content, including project images.
+   It follows the paper's unfolding transform without intercepting any input. */
+.pc-emboss {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  object-fit: fill;
+  mix-blend-mode: soft-light;
+  border-radius: 1px;
+  pointer-events: none;
+  user-select: none;
+}
+.pc-emboss { filter: url(#pc-emboss-depth); }
+.pc-visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.pc-layout-rule { position: absolute; top: 7%; bottom: 7%; left: 28.5%; border-left: 1px dashed currentColor; opacity: .16; }
+.pc-ink { opacity: 0; }
+.pc-ink-title { filter: url(#pc-ink-title); }
+.pc-ink-body { filter: url(#pc-ink-body); }
+.pc-ink-note { filter: url(#pc-ink-note); }
+.pc-project-index { position: absolute; left: 5.5%; top: 25.5%; width: 23.5%; font-family: "VELISTA", Georgia, serif; mix-blend-mode: multiply; }
+.pc-project-tabs { display: flex; flex-direction: column; width: 100%; gap: 0; }
+.pc-project-tab {
+  display: flex;
+  align-items: baseline;
+  gap: 1ch;
+  width: 100%;
+  padding: .25cqw 0;
+  border: 0;
+  background: none;
+  text-align: left;
+  font-size: clamp(9px, 1.45cqw, 11.5px);
+  line-height: 1.45;
+  color: inherit;
+  cursor: pointer;
+  opacity: .62;
+  white-space: nowrap;
+  transition: opacity .18s;
+}
+.pc-project-tab span:first-child { font-variant-numeric: tabular-nums; }
+.pc-project-tab[aria-selected="true"], .pc-project-tab:hover { opacity: 1; }
+.pc-project-tab:focus-visible { outline-color: currentColor; outline-offset: 3px; }
+.pc-project-reading { position: absolute; inset: 7.5% 7% 7% 31%; display: grid; grid-template-rows: minmax(0, 1fr); }
+.pc-project-panel { position: relative; display: grid; grid-template-rows: auto auto minmax(0, 1fr); min-height: 0; overflow-x: hidden; overflow-y: auto; overscroll-behavior: contain; scrollbar-width: none; padding: 0 .2cqw 0 7cqw; outline: none; }
+.pc-project-panel::-webkit-scrollbar { display: none; width: 0; height: 0; }
+.pc-project-panel:focus-visible { outline: 1px solid #77695455; outline-offset: 5px; }
+.pc-project-heading, .pc-project-summary { mix-blend-mode: multiply; }
+.pc-project-heading { position: relative; }
+.pc-project-number { position: absolute; top: 0; left: -4.4cqw; font-size: clamp(9px, 1.4cqw, 11px); line-height: 1.4; }
+.pc-postcard h2 { margin: 0; font-size: clamp(10px, 1.5cqw, 12px); font-weight: 400; line-height: 1.4; }
+.pc-project-meta { margin: 1.2cqw 0 0; font-size: clamp(8px, 1.28cqw, 10px); line-height: 1.4; }
+.pc-project-summary { margin: 1.6cqw 0 1.35cqw; font-size: inherit; line-height: 1.4; }
+.pc-project-visual { display: grid; grid-template-rows: minmax(0, 1fr) auto; min-height: 92px; margin: 0; opacity: 0; }
+.pc-project-image-window { position: relative; width: 100%; min-height: 0; overflow: hidden; background: #8d847717; box-shadow: 0 0 0 1px #473d3012; }
+/* The grid reserves the image frame before decoding; image dimensions cannot resize it. */
+.pc-project-image-window img { position: absolute; inset: 0; display: block; width: 100%; height: 100%; object-fit: cover; object-position: center; user-select: none; }
+.pc-project-visual figcaption { margin-top: 1cqw; text-align: right; font-size: clamp(7px, 1.05cqw, 8px); line-height: 1.4; }
+.pc-view-project {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: .6em;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  opacity: .55;
+  font: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+.pc-view-project-label { display: inline-flex; white-space: nowrap; }
+/* Each slot follows its actual glyph width, including proportional serif lettering. */
+.pc-shuffle-glyph { position: relative; display: inline-block; overflow: hidden; height: 1.4em; }
+.pc-shuffle-glyph::before { content: attr(data-glyph); visibility: hidden; }
+.pc-shuffle-strip { position: absolute; top: 0; left: 0; display: flex; width: 300%; }
+.pc-shuffle-strip > span { flex: 0 0 33.333333%; text-align: center; }
+.pc-view-project.pc-is-shuffling .pc-shuffle-strip { will-change: transform; }
+.pc-view-project:focus-visible { outline: 1px solid var(--project-ink); outline-offset: 4px; }
+
+.pc-project-visual img {object-position:center;}
+.pc-filter-definitions {position:absolute;width:0;height:0;pointer-events:none;}
+@media(max-width:600px) {.pc-project-tab {padding:.65cqw 0;font-size:9px;} .pc-project-meta {font-size:7.5px;} .pc-project-summary {font-size:8px;line-height:1.35;} .pc-project-visual {min-height:80px;}}
+@media(prefers-reduced-motion:reduce) {.pc-project-tab {transition:none;}}

@@ -1,0 +1,20 @@
+/* Paint only: the live font metrics/alpha and the existing dissolve mask are unchanged. */
+body[data-material-ready="true"][data-material-mode="print"] #hero-title {
+  background-color: var(--wordmark-ink);
+  background-image:
+    linear-gradient(var(--material-paint), var(--material-paint)),
+    url("assets/hero/louis-print-texture-v1.png");
+  background-size: auto, 720px 720px;
+  background-position: 0 0;
+  background-repeat: repeat;
+  background-blend-mode: normal;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+@media (max-width: 600px) {
+  body[data-material-ready="true"][data-material-mode="print"] #hero-title {
+    background-size: auto, 420px 420px;
+  }
+}

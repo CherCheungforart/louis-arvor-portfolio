@@ -1,0 +1,45 @@
+/* Study controls only. The approved paint is shared with the production homepage. */
+.material-study {
+  position: fixed;
+  right: max(20px, env(safe-area-inset-right));
+  bottom: max(20px, env(safe-area-inset-bottom));
+  z-index: 30;
+  width: 268px;
+  color: #c8c4c0;
+  background: #151616;
+  border: 1px solid #494947;
+  font-family: var(--mono);
+  font-size: 12px;
+  line-height: 1.5;
+}
+.material-study summary {
+  min-height: 44px;
+  padding: 13px 14px;
+  cursor: pointer;
+  letter-spacing: .035em;
+}
+.material-study__body { padding: 0 14px 14px; }
+.material-study__modes { display: grid; grid-template-columns: 1fr 1fr; }
+.material-study button {
+  min-height: 44px;
+  padding: 9px 10px;
+  border: 1px solid #62615c;
+  border-radius: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+}
+.material-study button + button { border-left: 0; }
+.material-study button[aria-pressed="true"] { color: #151616; background: #b1aaa3; }
+.material-study__range { display: grid; grid-template-columns: 1fr auto; gap: 2px 12px; margin-top: 12px; }
+.material-study input { grid-column: 1 / -1; width: 100%; height: 32px; margin: 0; accent-color: #b1aaa3; }
+.material-study input:disabled { opacity: .4; }
+.material-study__links { display: flex; justify-content: space-between; margin-top: 4px; }
+.material-study__links a { min-height: 32px; padding-block: 8px 0; }
+.material-study :focus-visible { outline: 2px solid #ddd6cc; outline-offset: 3px; }
+.material-study__status { margin: 8px 0 0; font-size: 11px; color: #aaa69f; }
+.material-study__status:empty { display: none; }
+@media (max-width: 600px) {
+  .material-study { right: 12px; bottom: max(12px, env(safe-area-inset-bottom)); width: min(268px, calc(100vw - 24px)); }
+}

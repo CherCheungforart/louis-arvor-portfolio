@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>LOUIS — Scroll Dissolve Study</title>
+  <link rel="icon" href="data:,">
+  <style>
+    @font-face{font-family:"Cut the crap";src:url("assets/cat-3d-preview/fonts/cut-the-crap.ttf") format("truetype");font-display:swap}
+    *{box-sizing:border-box}html,body{margin:0;background:#0c0d0d;color:#b1aaa3}
+    body{font:12px/1.7 ui-monospace,monospace;min-height:320svh}
+    .stage{position:relative;height:320svh;overflow-x:clip}
+    header{position:absolute;left:24px;top:24px;right:24px;display:flex;justify-content:space-between;gap:20px}
+    header p{margin:0}a{color:inherit}
+    #artwork{position:absolute;left:0;right:0;top:34svh;height:40svh}
+    #hero-title{position:absolute;left:0;bottom:0;margin:0;font:400 30vw/.72 "Cut the crap";letter-spacing:0;white-space:nowrap;color:#b1aaa3}
+    #font-baseline{display:inline-block;width:0;height:0;vertical-align:baseline}
+    footer{position:absolute;z-index:4;bottom:20px;left:24px;right:24px;font-size:11px;text-shadow:0 1px 4px #000}
+    @media(max-width:600px){header{font-size:10px;flex-direction:column}#artwork{top:18svh}footer{font-size:10px}}
+  </style>
+</head>
+<body>
+  <!-- This live h1 is the source of the effect. Edit its text normally. -->
+  <!-- The standalone download embeds this font and the shared JS at build time. -->
+  <main class="stage">
+    <header><p>LOUIS ARVOR<br>SCROLL DISSOLVE / STUDY 10</p><p>SCROLL DOWN → EXTEND<br>SCROLL UP → REWIND THE SAME TRAIL<br>STOP → FREEZE</p></header>
+    <div id="artwork"><h1 id="hero-title">LOUIS<i id="font-baseline" aria-hidden="true"></i></h1></div>
+    <footer>UPPER 42% PROTECTED · NO AUTOPLAY · NATIVE SCROLL / TOUCH<br><a href="dissolve-standalone.html" download>↓ Download self-contained HTML</a> · <a href="/">Portfolio</a></footer>
+  </main>
+  <script type="module" src="assets/cat-3d-preview/dissolve.bundle.js"></script>
+</body>
+</html>

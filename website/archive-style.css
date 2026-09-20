@@ -1,0 +1,173 @@
+/* Shared type and ink for the portfolio's printed surfaces. */
+@font-face {
+  font-family: 'Powell Antique';
+  src: url('assets/fonts/archive/PowellAntique.ttf') format('truetype');
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Maranatha';
+  src: url('assets/fonts/archive/Maranatha.ttf') format('truetype');
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+:root {
+  --font-heading: 'Powell Antique', Georgia, serif;
+  --font-reading: 'Maranatha', Georgia, serif;
+  --font-ui: var(--font-reading);
+  --archive-ink: #d6d0c6;
+  --archive-soft: #b9b4ab;
+  --archive-faint: #98948c;
+  --paper: #0c0d0d;
+  --plate: #171816;
+  --line: #35352f;
+  --ink: var(--archive-ink);
+  --ink-soft: var(--archive-soft);
+  --muted: var(--archive-soft);
+  --mono: var(--font-ui);
+  --body-font: var(--font-reading);
+  --type-label: 13px;
+  --type-ui: 14px;
+  --type-body: clamp(18px, 1.45vw, 21px);
+  --type-lead: clamp(23px, 2vw, 29px);
+  --type-subtitle: clamp(23px, 2.1vw, 30px);
+  --type-title: clamp(34px, 3.7vw, 54px);
+  --reading-leading: 1.65;
+  --reading-measure: 58ch;
+  --chapter-gap: clamp(32px, 4vw, 56px);
+  --chapter-padding: clamp(64px, 7vw, 104px);
+  --content-section-gap: clamp(64px, 7vw, 104px);
+}
+
+/* The wordmark keeps its own face; chapter titles share one quiet display face. */
+.stamp-page__label.chapter-title,
+.about-section > .chapter-title,
+.portfolio-contact .chapter-title,
+#project-name {
+  font-family: var(--font-heading);
+  font-size: var(--type-title);
+  font-style: normal;
+  font-weight: 400;
+  font-synthesis: none;
+  line-height: 1.2;
+  letter-spacing: .01em;
+  color: var(--archive-ink);
+  background: none;
+  text-wrap: balance;
+}
+.stamp-page__label.chapter-title,
+.about-section > .chapter-title,
+.portfolio-contact .chapter-title {
+  width: 100%;
+  margin: 0 auto var(--chapter-gap);
+  padding: 0;
+  text-align: center;
+}
+.stamp-page__label.chapter-title .chapter-line {
+  display: inline-block;
+  vertical-align: top;
+  margin-inline: .1em;
+}
+/* The stamp extraction already reserves its own clearance below the title. */
+.stamp-page__label.chapter-title { margin-bottom: 0; }
+.hero__identity,
+.hero__discipline,
+.sp-note { font-family: var(--font-ui); }
+.hero__identity,
+.hero__discipline { font-size: 11px; }
+
+/* About and Contact use the same reading scale as the project pages. */
+.about-section,
+.portfolio-contact { font-family: var(--font-reading); }
+.about-layout {
+  max-width: 1000px;
+  margin-inline: auto;
+  column-gap: clamp(40px, 5vw, 72px);
+  grid-template-columns: minmax(0, .82fr) minmax(0, 1.18fr);
+}
+.about-copy {
+  font: 400 var(--type-body)/var(--reading-leading) var(--font-reading);
+  font-synthesis: none;
+  font-kerning: normal;
+  color: var(--archive-soft);
+  max-width: var(--reading-measure);
+  text-wrap: pretty;
+}
+.about-copy p { margin: 0 0 24px; }
+.about-copy .about-lead,
+.contact-invitation {
+  font: 400 var(--type-lead)/1.4 var(--font-reading);
+  letter-spacing: 0;
+  color: var(--archive-ink);
+  text-wrap: pretty;
+}
+.about-copy .about-lead { margin-bottom: 28px; }
+.about-portrait figcaption,
+.about-copy .about-placeholder-note,
+.contact-signature {
+  font: 400 var(--type-label)/1.6 var(--font-ui);
+  color: var(--archive-faint);
+  letter-spacing: .015em;
+}
+.about-copy .about-placeholder-note { margin-top: 32px; }
+.portrait-placeholder {
+  background: linear-gradient(#11120fe6, #11120fe6), url('assets/background/saulo-zayas-grain-v1.jpg') center/cover;
+  color: var(--archive-faint);
+  font: 400 var(--type-label)/1.5 var(--font-ui);
+  letter-spacing: .04em;
+}
+.contact-content {
+  max-width: 620px;
+  margin-inline: auto;
+  padding-top: 0;
+  text-align: center;
+}
+.contact-invitation { max-width: none; margin: 0 auto 32px; }
+.portfolio-contact a,
+.contact-phone {
+  font: 400 var(--type-body)/1.5 var(--font-reading);
+  letter-spacing: 0;
+  color: var(--archive-ink);
+}
+.contact-phone { justify-content: center; }
+.contact-signature { margin-top: 48px; font-size: 15px; }
+
+/* Warm-neutral text connects the glass control to the surrounding paper. */
+.portfolio-nav__links a { color: var(--archive-soft); }
+.portfolio-nav__links a[aria-current=page],
+.portfolio-nav__links a:hover { color: #eee9e0; }
+
+/* The letter and its detailed inner page use the same reading families. */
+.pc-postcard-content,
+.pc-project-index { font-family: var(--font-reading); }
+.pc-postcard-content { font-size: clamp(12px, 1.7cqw, 16px); line-height: 1.45; }
+.pc-postcard h2 { font-family: var(--font-heading); font-size: clamp(16px, 2.3cqw, 20px); }
+.pc-project-tab { font-family: var(--font-reading); font-size: clamp(12px, 1.9cqw, 16px); }
+.pc-project-number { font-size: clamp(12px, 1.7cqw, 15px); }
+.pc-project-meta { font-size: clamp(11px, 1.6cqw, 14px); }
+.pc-project-summary { font-size: inherit; line-height: 1.45; }
+.pc-project-visual figcaption { font-size: clamp(11px, 1.5cqw, 13px); }
+
+@media (max-width: 800px) {
+  .about-layout { grid-template-columns: 1fr; gap: 32px; max-width: 580px; }
+  .about-portrait { width: min(100%, 280px); margin-inline: auto; }
+  .about-copy { max-width: 100%; }
+}
+@media (max-width: 650px) {
+  :root { --type-title: 34px; --type-body: 18px; --type-lead: 24px; }
+  .stamp-page__label.chapter-title .chapter-line { display: block; }
+  .contact-content { width: 100%; }
+  /* The small letter is a project preview; reserve room for its cover image. */
+  .pc-postcard-content { font-size: 10.5px; }
+  .pc-postcard h2 { font-size: 14px; }
+  .pc-project-tab { font-size: 11px; }
+  .pc-project-number { font-size: 10px; }
+  .pc-project-meta { font-size: 9.5px; }
+  .pc-project-summary { line-height: 1.35; }
+  .pc-project-visual figcaption { font-size: 10px; }
+}
+@media (max-width: 360px) {
+  :root { --type-ui: 13px; }
+}

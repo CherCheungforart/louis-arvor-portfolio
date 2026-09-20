@@ -1,0 +1,38 @@
+.pixel-cat-cursor { display: none; pointer-events: none; }
+
+@media (hover: hover) and (pointer: fine) {
+  html.has-pixel-cat,
+  html.has-pixel-cat * { cursor: none !important; }
+
+  html.has-pixel-cat :is(input, textarea, [contenteditable="true"]) {
+    cursor: auto !important;
+  }
+
+  .pixel-cat-cursor {
+    display: block;
+    position: fixed;
+    inset: 0 auto auto 0;
+    width: 25.9px;
+    height: 28px;
+    z-index: 2147483647;
+    opacity: 0;
+    --pixel-cat-color: #d7cfc3;
+    /* Filter the already-masked child, so only its silhouette is softened. */
+    filter: blur(.4px);
+    contain: layout style;
+  }
+
+  .pixel-cat-cursor::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: var(--pixel-cat-color);
+    /* All dimensions and the eye hotspot use the same 70% scale. */
+    -webkit-mask: url("assets/cursor/pixel-cat-source-v1.png") -12.138px -10.5px / 50.4px 50.4px no-repeat;
+    mask: url("assets/cursor/pixel-cat-source-v1.png") -12.138px -10.5px / 50.4px 50.4px no-repeat;
+    mask-mode: alpha;
+  }
+
+  .pixel-cat-cursor.is-visible { opacity: 1; }
+
+}

@@ -1,0 +1,24 @@
+.stamp-page{--pocket-size:min(440px,70vw,44svh);position:relative;z-index:2;isolation:isolate;overflow:clip;background:transparent;min-height:100svh;display:grid;align-content:start;justify-items:center;gap:16px;padding:var(--section-space) var(--safe-right) var(--section-space) var(--safe-left)}
+/* Reserve the unfolded cards' entire upward travel; the label and next page
+   keep the same clearance whether the pocket is open or closed. */
+.sp-scene{width:var(--pocket-size);aspect-ratio:1;position:relative;isolation:isolate;perspective:1000px;margin-top:calc(1.02 * var(--pocket-size) + var(--content-space));margin-bottom:calc(-.19 * var(--pocket-size));}
+.sp-layer{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;user-select:none}
+.sp-ground{z-index:0;opacity:.8}.sp-back{z-index:1}.sp-back,.sp-ground{transform:translateY(-19%)}
+.sp-stamp{position:absolute;display:block;width:60%;height:auto;aspect-ratio:1122/1402;top:-11%;padding:0;border:0;background:none;font:inherit;color:inherit;text-align:inherit;perspective:950px;transform-origin:50% 50%;user-select:none;pointer-events:auto;will-change:transform;filter:drop-shadow(2px 5px 3px #0005);-webkit-tap-highlight-color:transparent;touch-action:pan-y}
+.sp-face{position:relative;display:block;width:100%;height:100%;transform-origin:50% 50%;backface-visibility:hidden;pointer-events:none;isolation:isolate}
+.sp-face>img{display:block;width:100%;height:100%;object-fit:contain;user-select:none}
+.sp-surface{position:absolute;inset:0;display:block;width:100%;height:100%;opacity:0;pointer-events:none}
+.sp-face.has-surface .sp-surface{opacity:1}.sp-face.has-surface>img{opacity:0}
+.sp-stamp.is-hover-moving .sp-face{will-change:transform}
+.sp-stamp:focus-visible{outline:1px solid #d4c8ae;outline-offset:8px;border-radius:4px}
+.sp-china{left:16%;top:-17%;z-index:2}.sp-france{left:24%;z-index:3}
+.sp-frost{position:absolute;inset:0;z-index:4;clip-path:url(#stamp-front-contour);backdrop-filter:blur(5px) saturate(.83);-webkit-backdrop-filter:blur(5px) saturate(.83);pointer-events:none}
+.sp-contact{z-index:5;opacity:.8}.sp-front{z-index:6}
+.sp-trigger{position:absolute;left:13.333%;top:22%;width:73.334%;height:49%;border:0;border-radius:4% 4% 11% 11%;background:transparent;z-index:7;cursor:pointer;-webkit-tap-highlight-color:transparent}
+.sp-trigger:focus-visible{outline:1px solid #d4c8ae;outline-offset:8px}
+.sp-note{font-size:10px;color:#6f716d;letter-spacing:.12em;margin:4px 0 0}
+@media(prefers-reduced-motion:reduce){.sp-stamp{transition:top 100ms linear,left 100ms linear,transform 100ms linear,filter 100ms linear;transition-delay:0ms!important}}
+@media(prefers-reduced-motion:reduce){.sp-face{transform:none!important}}
+
+.stamp-page__label{justify-self:start;margin:0;color:var(--ink-soft);font-size:11px;letter-spacing:.1em;font-weight:400}
+.sp-trigger{font:inherit;cursor:inherit}.sp-stamp{cursor:inherit}

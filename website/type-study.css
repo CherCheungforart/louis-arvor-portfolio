@@ -1,0 +1,14 @@
+html[data-type-study]{--study-heading:Georgia,serif;--study-heading-size:clamp(34px,4.1vw,58px);--study-ink:#d6d0c6}
+html[data-type-study=palatino]{--study-heading:Palatino,'Palatino Linotype',serif}
+html[data-type-study] :is(.stamp-page__label.chapter-title,.about-section>.chapter-title,.portfolio-contact .chapter-title,#project-name){font-family:var(--study-heading);font-size:var(--study-heading-size);font-weight:400;line-height:1.18;letter-spacing:-.025em;color:var(--study-ink)!important;-webkit-text-fill-color:var(--study-ink);background:none}
+.type-study-controls{position:fixed;top:16px;right:16px;z-index:9999;display:flex;gap:4px;padding:6px;background:#1b1b1a;color:#d6d0c6;border-radius:12px;box-shadow:0 4px 20px #0005;font:12px/1.4 'Geist Sans',sans-serif}
+.type-study-controls button{border:0;background:transparent;color:#aaa69e;padding:9px 12px;border-radius:7px;font:inherit;cursor:pointer}
+.type-study-controls button[aria-pressed=true]{background:#363532;color:#ece6dc}
+.type-study-controls button:focus-visible{outline:2px solid #d6d0c6;outline-offset:2px}
+body:has(#cat-loading:not([hidden])) .type-study-controls{visibility:hidden}
+@media(max-width:650px){html[data-type-study]{--study-heading-size:34px}.type-study-controls{top:10px;right:10px}}
+
+html[data-type-study=geist]{--study-heading:'Geist Sans',Arial,sans-serif}
+html[data-type-study][data-study-body=serif] #project :is(.standfirst,.metadata,.text-section p,.draft-note,figcaption){font-family:'NewYork',Georgia,serif}
+html[data-type-study]:not([data-study-body=serif]) #project :is(.standfirst,.metadata,.text-section p,.draft-note,figcaption){font-family:'Geist Sans',Arial,sans-serif}
+.type-study-controls{flex-wrap:wrap;max-width:calc(100vw - 32px)}

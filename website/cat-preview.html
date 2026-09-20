@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#0c0d0d">
+  <title>Louis Arvor — 猫咪双模型交互预览</title>
+  <link rel="icon" href="data:,">
+  <link rel="preload" href="assets/cat-3d-preview/fonts/archivo-black-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="cat-preview.css">
+  <script type="module" src="assets/cat-3d-preview/preview.bundle.js?v=three-cat-03"></script>
+</head>
+<body data-motion="loading" data-facing="right">
+  <a class="skip" href="#preview-notes">跳到预览说明</a>
+  <main>
+    <section class="preview-hero" aria-label="Louis 猫咪滚动交互预览">
+      <header class="identity">
+        <a href="./">LOUIS ARVOR</a>
+        <p>PORTFOLIO / 2026</p>
+        <p class="edition">CAT STUDY — 01 / THREE.JS</p>
+      </header>
+      <div class="readout" aria-label="预览状态">
+        <span id="motion-status" role="status">正在加载两个模型…</span>
+        <span id="direction-status">↓ 往页底：朝右　↑ 往页顶：朝左</span>
+      </div>
+      <div id="artwork" class="artwork">
+        <h1 class="wordmark"><span id="wordmark-text">LOUIS</span><i id="font-baseline" aria-hidden="true"></i></h1>
+        <div id="cat-stage" class="cat-stage" aria-hidden="true">
+          <canvas id="cat-canvas"></canvas>
+        </div>
+        <div id="ground-guide" class="ground-guide" aria-hidden="true"></div>
+      </div>
+      <div class="loading-message" id="loading-message">
+        <p id="load-status" role="status">加载坐姿与正常步幅行走模型，首次打开约 16 MB。</p>
+        <button type="button" id="retry" hidden>重新加载</button>
+      </div>
+      <p class="scroll-note">SCROLL / SWIPE<br><span>滚动时行走 · 停下时坐着</span></p>
+    </section>
+    <section id="preview-notes" class="notes" aria-labelledby="notes-title">
+      <div>
+        <span class="index">01 / INTERACTION STUDY</span>
+        <h2 id="notes-title">坐着。走动。换个方向。</h2>
+      </div>
+      <div class="notes-copy">
+        <p>向页底滚动，猫朝右行走；向页顶滚动，猫朝左行走。停滚后切回坐姿，并保留刚才的朝向和位置。</p>
+        <p>桌面端移动鼠标，瞳孔会在眼眶内小幅追踪光标。头部保持原有侧面方向；鼠标离开窗口后恢复原来的眼睛。</p>
+        <p>这是两个独立模型的直接切换预览，暂不包含起身过程。保留正常步幅；行走模型已有的局部蒙皮问题尚未在此版本修复。</p>
+        <p>猫咪与 LOUIS 随页面正常上移。手机手指向上推页面，相当于往页底滚动，因此猫朝右。</p>
+        <label class="guide-toggle"><input id="show-ground" type="checkbox"> 显示脚底基准线</label>
+        <p class="links"><a href="#top" id="back-top">↑ 返回开场</a><a href="./">↗ 原网站</a></p>
+      </div>
+    </section>
+    <footer>LOUIS ARVOR / MOTION PROTOTYPE <span>THREE.JS / DUAL MODEL — 02</span></footer>
+  </main>
+  <noscript><p class="noscript">请启用 JavaScript 查看 Three.js 猫咪预览。<a href="./">返回原网站</a></p></noscript>
+</body>
+</html>

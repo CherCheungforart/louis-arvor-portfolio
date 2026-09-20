@@ -1,0 +1,24 @@
+/* The trail belongs to the cursor, not the site's bottom texture group. */
+.pixel-trail-layer {
+  position:fixed;
+  inset:0;
+  z-index:2147483646;
+  display:grid;
+  align-content:start;
+  overflow:hidden;
+  pointer-events:none;
+  contain:strict;
+}
+.pixel-trail-layer > i {
+  display:block;
+  aspect-ratio:1;
+  opacity:0;
+  background:var(--pixel-trail-color,#d7cfc3);
+  /* Four toe pads and a rounded central pad; faces right like the cursor cat. */
+  --paw-shape:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cg transform='rotate(90 12 12)' fill='white'%3E%3Cellipse cx='4.8' cy='9' rx='2.4' ry='3.1' transform='rotate(-28 4.8 9)'/%3E%3Cellipse cx='9.2' cy='5.4' rx='2.4' ry='3.1' transform='rotate(-10 9.2 5.4)'/%3E%3Cellipse cx='14.8' cy='5.4' rx='2.4' ry='3.1' transform='rotate(10 14.8 5.4)'/%3E%3Cellipse cx='19.2' cy='9' rx='2.4' ry='3.1' transform='rotate(28 19.2 9)'/%3E%3Cpath d='M12 10.5C9.3 10.5 8.4 13 6.5 15.5C4.2 18.5 6.1 21.2 9 20.6C11 20.1 13 20.1 15 20.6C17.9 21.2 19.8 18.5 17.5 15.5C15.6 13 14.7 10.5 12 10.5Z'/%3E%3C/g%3E%3C/svg%3E");
+  -webkit-mask:var(--paw-shape) center/contain no-repeat;
+  mask:var(--paw-shape) center/contain no-repeat;
+}
+@media (hover:none), (pointer:coarse), (prefers-reduced-motion:reduce) {
+  .pixel-trail-layer { display:none; }
+}

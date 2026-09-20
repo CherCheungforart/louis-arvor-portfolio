@@ -1,0 +1,31 @@
+/* Section structure and reveal masks. Shared typography lives in archive-style.css. */
+/* One section owns each gap; generic main margins must not add another gap. */
+main > .stamp-page,
+main > .about-section,
+main > .portfolio-contact { margin-block-start: 0; }
+.stamp-page { padding-block: var(--chapter-padding); }
+.chapter-line { display: block; overflow: clip; padding-bottom: .14em; margin-bottom: -.04em; }
+.chapter-line > span { display: block; }
+.about-section {
+  position: relative;
+  padding: var(--chapter-padding) var(--safe-right, 6vw) var(--chapter-padding) var(--safe-left, 6vw);
+  scroll-margin-top: 40px;
+}
+.about-layout { display: grid; align-items: start; }
+.about-portrait { margin: 0; }
+.portrait-placeholder {
+  aspect-ratio: 4/5;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 28px;
+}
+.about-portrait figcaption { margin-top: 16px; }
+.portfolio-contact {
+  min-height: 100svh;
+  display: grid;
+  align-content: center;
+  padding-top: var(--chapter-padding);
+  padding-bottom: max(144px, calc(env(safe-area-inset-bottom) + 120px));
+}

@@ -1,0 +1,81 @@
+/* Study only. Palette tokens are the single source for surfaces and swatches. */
+:root {
+  --study-ink: #14263f;
+  --study-iris: #331d42;
+  --study-peacock: #082c32;
+}
+:root[data-background-tone="ink"] { --paper: var(--study-ink); }
+:root[data-background-tone="iris"] { --paper: var(--study-iris); }
+:root[data-background-tone="peacock"] { --paper: var(--study-peacock); }
+
+/* Isolate hue from texture for this study. Existing foreground materials remain intact. */
+:root[data-background-tone] .site-background::after {
+  background-image: none;
+  filter: none;
+  mix-blend-mode: normal;
+  opacity: 0;
+}
+
+.background-study {
+  position: fixed;
+  bottom: max(18px, env(safe-area-inset-bottom));
+  right: max(18px, env(safe-area-inset-right));
+  width: min(352px, calc(100% - 32px));
+  z-index: 10000;
+  color: #342f2d;
+  background: #e5dfd3;
+  font: 12px/1.5 "IBM Plex Mono", "PingFang SC", sans-serif;
+  border: 1px solid #bbb1a1;
+}
+.background-study summary {
+  padding: 10px 13px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  list-style: none;
+  user-select: none;
+}
+.background-study summary::-webkit-details-marker { display: none; }
+.background-study summary::before { content: "+"; }
+.background-study details[open] summary::before { content: "−"; }
+.background-study summary [data-tone-name] { margin-left: auto; }
+.background-study__body { padding: 0 12px 10px; }
+.background-study__tones { display: flex; gap: 4px; }
+.background-study button {
+  font: inherit;
+  color: inherit;
+  border: 0;
+  background: transparent;
+  border-radius: 0;
+  min-height: 36px;
+  padding: 5px 8px;
+}
+.background-study button:focus-visible,
+.background-study summary:focus-visible { outline: 2px solid #554138; outline-offset: 2px; }
+.background-study__tones button {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+}
+.background-study__tones button[aria-pressed="true"] { background: #cec4b6; }
+.background-study button:disabled { opacity: .4; }
+.background-study__tones i { width: 10px; height: 10px; flex: 0 0 10px; }
+.background-study [data-tone="ink"] i { background: var(--study-ink); }
+.background-study [data-tone="iris"] i { background: var(--study-iris); }
+.background-study [data-tone="peacock"] i { background: var(--study-peacock); }
+.background-study__footer { display: flex; align-items: center; justify-content: space-between; margin-top: 4px; }
+.background-study__footer nav { display: flex; }
+.background-study__footer button { text-decoration: underline; text-underline-offset: 3px; }
+.background-study__footer output { font-size: 11px; }
+.background-study p { margin: 4px 7px 0; font-size: 11px; }
+@media (pointer: coarse) {
+  .background-study button { min-height: 44px; }
+  .background-study summary { min-height: 44px; }
+}
+@media (max-width: 420px) {
+  .background-study { right: 16px; bottom: max(12px, env(safe-area-inset-bottom)); }
+  .background-study__tones button { padding-inline: 4px; }
+}
